@@ -2,7 +2,7 @@
 
 ## _Isolation is one of ACID properties_
 
-Resume: Today you will see how database works with transactions and isolation levels
+Resume: Today you will see how database works with transactions and isolation levels.
 
 ## Contents
 
@@ -35,19 +35,19 @@ Resume: Today you will see how database works with transactions and isolation le
 
 ![D08_01](misc/images/D08_01.png)
 
-The Penrose stairs or Penrose steps, also dubbed the impossible staircase, is an impossible object created by Lionel Penrose and his son Roger Penrose. A variation on the Penrose triangle, it is a two-dimensional depiction of a staircase in which the stairs make four 90-degree turns as they ascend or descend yet form a continuous loop, so that a person could climb them forever and never get any higher. This is clearly impossible in three dimensions. The "continuous staircase" was first presented in an article that the Penroses wrote in 1959, based on the so-called "triangle of Penrose" published by Roger Penrose in the British Journal of Psychology in 1958. 
+The Penrose stairs or Penrose steps, also called the impossible staircase, is an impossible object created by Lionel Penrose and his son Roger Penrose. A variation of the Penrose Triangle, it is a two-dimensional representation of a staircase in which the stairs make four 90-degree turns as they ascend or descend, yet form a continuous loop so that a person could climb them forever and never get higher. This is clearly impossible in three dimensions. The "continuous staircase" was first presented in an article written by the Penroses in 1959, based on the so-called "Penrose Triangle" published by Roger Penrose in the British Journal of Psychology in 1958. 
 
-“Penrose Stairs” is a mathematical anomaly, actually Database Theory has 4 foundametal data anomalies (physical anomalies).
-- Lost Update Anomaly
-- Dirty Reads Anomaly
-- Non-repeatable Reads Anomaly
-- Phantom Read Anomaly
+"Penrose Stairs" is a mathematical anomaly, actually database theory has 4 foundametal data anomalies (physical anomalies).
+- Lost Update Anomaly;
+- Dirty Reads Anomaly;
+- Non-repeatable Reads Anomaly;
+- Phantom Read Anomaly.
 
-Therefore there are different Isolation Levels in ANSI SQL standard that prevent famous anomalies.
+Therefore, there are different isolation levels in ANSI SQL standard that prevent known anomalies.
 
 ![D08_02](misc/images/D08_02.png)
 
-From one side this matrix should be a Standard for every Relational Database, but reality ... looks a bit different.
+From one point of view, this matrix should be a standard for any Relational Database, but reality... looks a bit different.
 
 |  |  | |
 | ------ | ------ | ------ |
@@ -55,36 +55,36 @@ From one side this matrix should be a Standard for every Relational Database, bu
 | Oracle | ![D08_04](misc/images/D08_04.png) |
 | MySQL | ![D08_05](misc/images/D08_05.png) |
 
-Nowadays, IT community found a set of new anomalies based on Database Model (logical view)
-- Read Skew Anomaly
-- Write Skew Anomaly
-- Serialization Anomaly
-- Fan Traps Anomaly
-- Chasm Traps Anomaly 
-- Data Model Loops Anomaly
+Nowadays, IT community found a set of new anomalies based on Database Model (logical view):
+- Read Skew Anomaly;
+- Write Skew Anomaly;
+- Serialization Anomaly;
+- Fan Traps Anomaly;
+- Chasm Traps Anomaly;
+- Data Model Loops Anomaly;
 - etc.
 
 
 ## Chapter II
 ## General Rules
 
-- Use this page as the only reference. Do not listen to any rumors and speculations on how to prepare your solution.
-- Please make sure you are using the latest version of PostgreSQL.
-- That is completely OK if you are using IDE to write a source code (aka SQL script).
-- To be assessed your solution must be in your GIT repository.
-- Your solutions will be evaluated by your piscine mates.
-- You should not leave in your directory any other file than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Do you have a question? Ask your neighbor on the right. Otherwise, try with your neighbor on the left.
+- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- To be evaluated, your solution must be in your GIT repository.
+- Your solutions will be evaluated by your peers.
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
+- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
 - Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. They may require things that are not otherwise specified in the subject.
+- Read the examples carefully. You may need things not specified in the topic.
 - And may the SQL-Force be with you!
-- Absolutely everything can be presented in SQL! Let’s start and have fun!
+Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 ## Chapter III
 ## Rules of the day
 
-- Please make sure you have an own database and access for it on your PostgreSQL cluster. 
-- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in Day03 during exercises 07-13 and in Day04 during exercise 07 should be on place (its similar like in real world , when we applied a release and need to be consistency with data for new changes).**
+- Please make sure you have your own database and access to it on your PostgreSQL cluster. 
+- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in Day03 during Exercises 07-13 and in Day04 during Exercise 07 should be on place (its similar like in real world, when we applied a release and need to be consistency with data for new changes).**
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
 - Please take a look at the Logical View of our Database Model. 
 
@@ -117,7 +117,7 @@ Nowadays, IT community found a set of new anomalies based on Database Model (log
 - field menu_id - foreign key to menu
 - field order_date - date (for example 2022-01-01) of person order 
 
-Persons' visit and persons' order are different entities and don't contain any correlation between data. For example, a client can be in one restraunt (just looking at menu) and in this time make an order in different one by phone or by mobile application. Or another case,  just be at home and again make a call with order without any visits.
+People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
 
 ## Chapter IV
@@ -130,29 +130,29 @@ Persons' visit and persons' order are different entities and don't contain any c
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL|
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines). 
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line). 
 
 Please provide a proof that your parallel session can’t see your changes until you will make a `COMMIT`;
 
-Take a look at the steps below.
+See the steps below.
 
 **Session #1**
-- update of rating for “Pizza Hut” to 5 points in a transaction mode .
-- check that you can see a changes in session #1
+- Update of rating for "Pizza Hut" to 5 points in a transaction mode.
+- Check that you can see a changes in session #1.
 
 **Session #2**
-- check that you can’t see a changes in session #2
+- Check that you can’t see a changes in session #2.
 
 **Session #1**
-- publish your changes for all parallel sessions.
+- Publish your changes for all parallel sessions.
 
 **Session #2**
-- check that you can see a changes in session #2
+- Check that you can see a changes in session #2.
 
 
-So, take a look on example of my output for Session #2.
+So, take a look on example of our output for Session #2.
 
     pizza_db=> select * from pizzeria where name  = 'Pizza Hut';
     id |   name    | rating
@@ -166,9 +166,7 @@ So, take a look on example of my output for Session #2.
     1 | Pizza Hut |      5
     (1 row)
 
-You can see the same query returns different results, because the first one was run before publishing in Session#1 and the second one was queried after finished Session#1. 
-
-
+You can see that the same query returns different results because the first query was run before publishing in Session#1 and the second query was run after Session#1 was finished.
 
 ## Chapter V
 ## Exercise 01 - Lost Update Anomaly
@@ -180,23 +178,19 @@ You can see the same query returns different results, because the first one was 
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines). 
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line). 
 
-Before a task, make sure you are at a default isolation level in your database. Just run the next statement
+Before running a task, make sure you are at a standard isolation level in your database. Just run the following statement `SHOW TRANSACTION ISOLATION LEVEL;` and the result should be "read committed".
 
-`SHOW TRANSACTION ISOLATION LEVEL;`
-
-and the result should be “read committed”;
-
-If not, then please set “read committed” isolation level explicitly on a session level.
+If not, please set the read committed isolation level explicitly on a session level.
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Lost Update Anomaly” database pattern. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_06](misc/images/D08_06.png) |
+| Let's examine one of the famous "Lost Update Anomaly" database patterns. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all the sequential steps for both Sessions. | ![D08_06](misc/images/D08_06.png) |
 
-Please check a rating for “Pizza Hut” in a transaction mode for both Sessions and after that make `UPDATE` of rating to 4 value in session #1 and make `UPDATE` of rating to 3.6 value in session #2 (in the same order as in the picture). 
+Please check a rating for "Pizza Hut" in a transaction mode for both sessions and then make an `UPDATE` of the rating to a value of 4 in Session #1 and make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
 
 
@@ -210,15 +204,15 @@ Please check a rating for “Pizza Hut” in a transaction mode for both Session
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines).
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Lost Update Anomaly” database pattern but under `REPEATABLE READ` isolation level. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_07](misc/images/D08_07.png) |
+| Let's examine one of the famous "Lost Update Anomaly" database patterns, but under the `REPEATABLE READ` isolation level. You can see a graphical representation of this anomaly on a picture. Horizontal red line means the final results after all sequential steps for both Sessions. | ![D08_07](misc/images/D08_07.png) |
 
-Please check a rating for “Pizza Hut” in a transaction mode for both Sessions and after that make `UPDATE` of rating to 4 value in session #1 and make `UPDATE` of rating to 3.6 value in session #2 (in the same order as in the picture). 
+Please check a rating for "Pizza Hut" in a transaction mode for both sessions and then make an `UPDATE` of the rating to a value of 4 in Session #1 and make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
 ## Chapter VII
 ## Exercise 03 - Non-Repeatable Reads Anomaly
@@ -230,15 +224,15 @@ Please check a rating for “Pizza Hut” in a transaction mode for both Session
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines). 
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Non-Repeatable Reads” database pattern but under `READ COMMITTED` isolation level. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_08](misc/images/D08_08.png) |
+| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final result after all sequential steps for both Sessions. | ![D08_08](misc/images/D08_08.png) |
 
-Please check a rating for “Pizza Hut” in a transaction mode for session #1 and after that make `UPDATE` of rating to 3.6 value in session #2 (in the same order as in the picture). 
+Please check a rating for "Pizza Hut" in a transaction mode for Session #1 and then make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
 
 ## Chapter VIII
@@ -252,15 +246,15 @@ Please check a rating for “Pizza Hut” in a transaction mode for session #1 a
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines).
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Non-Repeatable Reads” database pattern but under `SERIALIZABLE` isolation level. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_09](misc/images/D08_09.png) |
+| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `SERIALIZABLE` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_09](misc/images/D08_09.png) |
 
-Please check a rating for “Pizza Hut” in a transaction mode for session #1 and after that make `UPDATE` of rating to 3.0 value in session #2 (in the same order as in the picture). 
+Please check a rating for "Pizza Hut" in a transaction mode for Session #1, and then make an `UPDATE` of the rating to a value of 3.0 in Session #2 (in the same order as in the picture).
 
 
 
@@ -275,15 +269,15 @@ Please check a rating for “Pizza Hut” in a transaction mode for session #1 a
 | **Allowed**                               |                                                                                                                          |
 | Language                        |   SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines).
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Phantom Reads” database pattern but under `READ COMMITTED` isolation level. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_10](misc/images/D08_10.png) |
+| Let's check one of the famous "phantom reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_10](misc/images/D08_10.png) |
 
-Please summarize all ratings for all pizzerias in a transaction mode for session #1 and after that make `UPDATE` of rating to 1 value for “Pizza Hut” restaurant in session #2 (in the same order as in the picture). 
+Please summarize all ratings for all pizzerias in one transaction mode for Session #1 and then `UPDATE` the rating to 1 value for "Pizza Hut" restaurant in Session #2 (in the same order as in the picture).
 
  
 
@@ -298,16 +292,15 @@ Please summarize all ratings for all pizzerias in a transaction mode for session
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines).
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 |  |  |
 | ------ | ------ |
-| Let’s check one of the famous “Phantom Reads” database pattern but under `REPEATABLE READ` isolation level. You can see a graphical presentation of that anomaly on a picture. Horizontal Red Line means the final results after all sequential steps for both Sessions. | ![D08_11](misc/images/D08_11.png) |
+| Let's check one of the famous "Phantom Reads" database patterns, but under the isolation level `REPEATABLE READ`. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_11](misc/images/D08_11.png) |
 
-
-Please summarize all ratings for all pizzerias in a transaction mode for session #1 and after that make `UPDATE` of rating to 5 value for “Pizza Hut” restaurant in session #2 (in the same order as in the picture). 
+Please summarize all ratings for all pizzerias in one transaction mode for Session #1 and then `UPDATE` the rating to 5 value for "Pizza Hut" restaurant in Session #2 (in the same order as in the picture).
 
 ## Chapter XI
 ## Exercise 07 - Deadlock
@@ -320,16 +313,16 @@ Please summarize all ratings for all pizzerias in a transaction mode for session
 | **Allowed**                               |                                                                                                                          |
 | Language                        |  SQL                                                                                              |
 
-Please for this task use the command line for PostgreSQL database (psql). You need to check how your changes will be published in the database for other database users. 
+Please use the command line for PostgreSQL database (psql) for this task. You need to check how your changes will be published to the database for other database users. 
 
-Actually, we need two active sessions (meaning 2 parallel sessions in the command lines). 
+Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
 Let’s reproduce a deadlock situation in our database. 
 
 
 |  |  |
 | ------ | ------ |
-| You can see a graphical presentation of the deadlock situation on a picture. Looks like a “christ-lock” between parallel sessions. | ![D08_12](misc/images/D08_12.png) |
+| You can see a graphical representation of the deadlock situation in a picture. It looks like a "Christ-lock" between parallel sessions. | ![D08_12](misc/images/D08_12.png) |
 
-Please write any SQL statement with any isolation level (you can use default setting) on the `pizzeria` table to reproduce this deadlock situation.
+Please write any SQL statement with any isolation level (you can use the default setting) on the table `pizzeria` to reproduce this deadlock situation.
 
