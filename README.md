@@ -1,4 +1,4 @@
-# Day 08 - Piscine SQL
+# Day 08 — SQL Bootcamp
 
 ## _Isolation is one of ACID properties_
 
@@ -15,21 +15,21 @@ Resume: Today you will see how database works with transactions and isolation le
 3. [Chapter III](#chapter-iii) \
     3.1. [Rules of the day](#rules-of-the-day)  
 4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 - Simple transaction](#exercise-00-simple-transaction)  
+    4.1. [Exercise 00 — Simple transaction](#exercise-00-simple-transaction)  
 5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 - Lost Update Anomaly](#exercise-01-lost-update-anomaly)  
+    5.1. [Exercise 01 — Lost Update Anomaly](#exercise-01-lost-update-anomaly)  
 6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 - Lost Update for Repeatable Read](#exercise-02-lost-update-for-repeatable-read)  
+    6.1. [Exercise 02 — Lost Update for Repeatable Read](#exercise-02-lost-update-for-repeatable-read)  
 7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 - Non-Repeatable Reads Anomaly](#exercise-03-non-repeatable-reads-anomaly)  
+    7.1. [Exercise 03 — Non-Repeatable Reads Anomaly](#exercise-03-non-repeatable-reads-anomaly)  
 8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 - Non-Repeatable Reads for Serialization](#exercise-04-non-repeatable-reads-for-serialization)
+    8.1. [Exercise 04 — Non-Repeatable Reads for Serialization](#exercise-04-non-repeatable-reads-for-serialization)
 9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 - Phantom Reads Anomaly](#exercise-05-phantom-reads-anomaly)
+    9.1. [Exercise 05 — Phantom Reads Anomaly](#exercise-05-phantom-reads-anomaly)
 10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 - Phantom Reads for Repeatable Read](#exercise-06-phantom-reads-for-repeatable-read)
+    10.1. [Exercise 06 — Phantom Reads for Repeatable Read](#exercise-06-phantom-reads-for-repeatable-read)
 11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 - Deadlock](#exercise-07-deadlock)
+    11.1. [Exercise 07 — Deadlock](#exercise-07-deadlock)
       
 
 ## Chapter I
@@ -94,36 +94,36 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 
 1. **pizzeria** table (Dictionary Table with available pizzerias)
-- field id - primary key
-- field name - name of pizzeria
-- field rating - average rating of pizzeria (from 0 to 5 points)
+- field id — primary key
+- field name — name of pizzeria
+- field rating — average rating of pizzeria (from 0 to 5 points)
 2. **person** table (Dictionary Table with persons who loves pizza)
-- field id - primary key
-- field name - name of person
-- field age - age of person
-- field gender - gender of person
-- field address - address of person
+- field id — primary key
+- field name — name of person
+- field age — age of person
+- field gender — gender of person
+- field address — address of person
 3. **menu** table (Dictionary Table with available menu and price for concrete pizza)
-- field id - primary key
-- field pizzeria_id - foreign key to pizzeria
-- field pizza_name - name of pizza in pizzeria
-- field price - price of concrete pizza
+- field id — primary key
+- field pizzeria_id — foreign key to pizzeria
+- field pizza_name — name of pizza in pizzeria
+- field price — price of concrete pizza
 4. **person_visits** table (Operational Table with information about visits of pizzeria)
-- field id - primary key
-- field person_id - foreign key to person
-- field pizzeria_id - foreign key to pizzeria
-- field visit_date - date (for example 2022-01-01) of person visit 
+- field id — primary key
+- field person_id — foreign key to person
+- field pizzeria_id — foreign key to pizzeria
+- field visit_date — date (for example 2022-01-01) of person visit 
 5. **person_order** table (Operational Table with information about persons orders)
-- field id - primary key
-- field person_id - foreign key to person
-- field menu_id - foreign key to menu
-- field order_date - date (for example 2022-01-01) of person order 
+- field id — primary key
+- field person_id — foreign key to person
+- field menu_id — foreign key to menu
+- field order_date — date (for example 2022-01-01) of person order 
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
 
 ## Chapter IV
-## Exercise 00 - Simple transaction
+## Exercise 00 — Simple transaction
 
 | Exercise 00: Simple transaction |                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -171,7 +171,7 @@ So, take a look on example of our output for Session #2.
 You can see that the same query returns different results because the first query was run before publishing in Session#1 and the second query was run after Session#1 was finished.
 
 ## Chapter V
-## Exercise 01 - Lost Update Anomaly
+## Exercise 01 — Lost Update Anomaly
 
 | Exercise 01: Lost Update Anomaly|                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -197,7 +197,7 @@ Please check a rating for "Pizza Hut" in a transaction mode for both sessions an
 
 
 ## Chapter VI
-## Exercise 02 - Lost Update for Repeatable Read
+## Exercise 02 — Lost Update for Repeatable Read
 
 | Exercise 02: Lost Update for Repeatable Read|                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -217,7 +217,7 @@ Actually, we need two active sessions (i.e. 2 parallel sessions in the command l
 Please check a rating for "Pizza Hut" in a transaction mode for both sessions and then make an `UPDATE` of the rating to a value of 4 in Session #1 and make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
 ## Chapter VII
-## Exercise 03 - Non-Repeatable Reads Anomaly
+## Exercise 03 — Non-Repeatable Reads Anomaly
 
 | Exercise 03: Non-Repeatable Reads Anomaly |                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -238,7 +238,7 @@ Please check a rating for "Pizza Hut" in a transaction mode for Session #1 and t
 
 
 ## Chapter VIII
-## Exercise 04 - Non-Repeatable Reads for Serialization
+## Exercise 04 — Non-Repeatable Reads for Serialization
 
 
 | Exercise 04: Non-Repeatable Reads for Serialization |                                                                                                                          |
@@ -261,7 +261,7 @@ Please check a rating for "Pizza Hut" in a transaction mode for Session #1, and 
 
 
 ## Chapter IX
-## Exercise 05 - Phantom Reads Anomaly
+## Exercise 05 — Phantom Reads Anomaly
 
 
 | Exercise 05: Phantom Reads Anomaly|                                                                                                                          |
@@ -283,7 +283,7 @@ Please summarize all ratings for all pizzerias in one transaction mode for Sessi
  
 
 ## Chapter X
-## Exercise 06 - Phantom Reads for Repeatable Read
+## Exercise 06 — Phantom Reads for Repeatable Read
 
 
 | Exercise 06: Phantom Reads for Repeatable Read|                                                                                                                          |
@@ -304,7 +304,7 @@ Actually, we need two active sessions (i.e. 2 parallel sessions in the command l
 Please summarize all ratings for all pizzerias in one transaction mode for Session #1 and then make `INSERT` of the new restaurant 'Kazan Pizza 2' with rating 4 and ID=11 in Session #2 (in the same order as in the picture).
 
 ## Chapter XI
-## Exercise 07 - Deadlock
+## Exercise 07 — Deadlock
 
 
 | Exercise 07: Deadlock|                                                                                                                          |
