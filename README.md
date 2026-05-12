@@ -19,11 +19,31 @@ Practical study of transaction isolation levels in PostgreSQL: dirty read, non-r
 
 ### ✨ Features
 
-| Exercise | Topic | Isolation Level |\n|----------|-------|----------------|\n| ex00 | Dirty Read | READ UNCOMMITTED |\n| ex01 | Non-repeatable Read | READ COMMITTED |\n| ex02 | Phantom Read | REPEATABLE READ |\n| ex03 | Lost Update | SERIALIZABLE |\n| ex04 | Practical demonstration | All levels |\n| ex05 | FOR UPDATE | Row locks |\n| ex06 | Deadlock | Mutual locks |\n| ex07 | SKIP LOCKED | SQL queues |
+| Exercise | Topic | Isolation Level |
+|----------|-------|----------------|
+| ex00 | Dirty Read | READ UNCOMMITTED |
+| ex01 | Non-repeatable Read | READ COMMITTED |
+| ex02 | Phantom Read | REPEATABLE READ |
+| ex03 | Lost Update | SERIALIZABLE |
+| ex04 | Practical demonstration | All levels |
+| ex05 | FOR UPDATE | Row locks |
+| ex06 | Deadlock | Mutual locks |
+| ex07 | SKIP LOCKED | SQL queues |
 
 ### 🚀 Quick Start
 
-```sql\n-- Session 1\nBEGIN ISOLATION LEVEL REPEATABLE READ;\nSELECT COUNT(*) FROM person_visits; -- 10\n\n-- Session 2 inserts...\n\n-- Session 1\nSELECT COUNT(*) FROM person_visits; -- still 10\nCOMMIT;\nSELECT COUNT(*) FROM person_visits; -- now 11\n```
+```sql
+-- Session 1
+BEGIN ISOLATION LEVEL REPEATABLE READ;
+SELECT COUNT(*) FROM person_visits; -- 10
+
+-- Session 2 inserts...
+
+-- Session 1
+SELECT COUNT(*) FROM person_visits; -- still 10
+COMMIT;
+SELECT COUNT(*) FROM person_visits; -- now 11
+```
 
 ---
 
@@ -42,11 +62,31 @@ Practical study of transaction isolation levels in PostgreSQL: dirty read, non-r
 
 ### ✨ Возможности
 
-| Задача | Тема | Уровень изоляции |\n|--------|------|-----------------|\n| ex00 | Грязное чтение | READ UNCOMMITTED |\n| ex01 | Неповторяющееся чтение | READ COMMITTED |\n| ex02 | Фантомное чтение | REPEATABLE READ |\n| ex03 | Потерянное обновление | SERIALIZABLE |\n| ex04 | Демонстрация на практике | Все уровни |\n| ex05 | FOR UPDATE | Блокировки строк |\n| ex06 | Deadlock | Взаимные блокировки |\n| ex07 | SKIP LOCKED | Очереди на SQL |
+| Задача | Тема | Уровень изоляции |
+|--------|------|-----------------|
+| ex00 | Грязное чтение | READ UNCOMMITTED |
+| ex01 | Неповторяющееся чтение | READ COMMITTED |
+| ex02 | Фантомное чтение | REPEATABLE READ |
+| ex03 | Потерянное обновление | SERIALIZABLE |
+| ex04 | Демонстрация на практике | Все уровни |
+| ex05 | FOR UPDATE | Блокировки строк |
+| ex06 | Deadlock | Взаимные блокировки |
+| ex07 | SKIP LOCKED | Очереди на SQL |
 
 ### 🚀 Быстрый старт
 
-```sql\n-- Сессия 1\nBEGIN ISOLATION LEVEL REPEATABLE READ;\nSELECT COUNT(*) FROM person_visits; -- 10\n\n-- Сессия 2 делает INSERT...\n\n-- Сессия 1\nSELECT COUNT(*) FROM person_visits; -- всё ещё 10\nCOMMIT;\nSELECT COUNT(*) FROM person_visits; -- теперь 11\n```
+```sql
+-- Сессия 1
+BEGIN ISOLATION LEVEL REPEATABLE READ;
+SELECT COUNT(*) FROM person_visits; -- 10
+
+-- Сессия 2 делает INSERT...
+
+-- Сессия 1
+SELECT COUNT(*) FROM person_visits; -- всё ещё 10
+COMMIT;
+SELECT COUNT(*) FROM person_visits; -- теперь 11
+```
 
 ---
 
