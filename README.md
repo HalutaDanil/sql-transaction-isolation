@@ -30,20 +30,6 @@ Practical study of transaction isolation levels in PostgreSQL: dirty read, non-r
 | ex06 | Deadlock | Mutual locks |
 | ex07 | SKIP LOCKED | SQL queues |
 
-### 🚀 Quick Start
-
-```sql
--- Session 1
-BEGIN ISOLATION LEVEL REPEATABLE READ;
-SELECT COUNT(*) FROM person_visits; -- 10
-
--- Session 2 inserts...
-
--- Session 1
-SELECT COUNT(*) FROM person_visits; -- still 10
-COMMIT;
-SELECT COUNT(*) FROM person_visits; -- now 11
-```
 
 ---
 
@@ -73,20 +59,6 @@ SELECT COUNT(*) FROM person_visits; -- now 11
 | ex06 | Deadlock | Взаимные блокировки |
 | ex07 | SKIP LOCKED | Очереди на SQL |
 
-### 🚀 Быстрый старт
-
-```sql
--- Сессия 1
-BEGIN ISOLATION LEVEL REPEATABLE READ;
-SELECT COUNT(*) FROM person_visits; -- 10
-
--- Сессия 2 делает INSERT...
-
--- Сессия 1
-SELECT COUNT(*) FROM person_visits; -- всё ещё 10
-COMMIT;
-SELECT COUNT(*) FROM person_visits; -- теперь 11
-```
 
 ---
 
